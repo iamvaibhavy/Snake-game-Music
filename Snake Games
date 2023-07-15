@@ -10,7 +10,7 @@ Y_LIMIT = 900
 
 class Apple :
     def __init__(self, parent_screen) -> None:
-        self.image = pygame.image.load("resources/apple.jpg").convert()
+        self.image = pygame.image.load("apple.jpg").convert()
         self.parent_screen = parent_screen
         self.x = SIZE*3
         self.y = SIZE*3
@@ -27,7 +27,7 @@ class Snake :
     def __init__(self, parent_screen, length) -> None:
         self.length = length
         self.parent_screen = parent_screen
-        self.block = pygame.image.load("resources/block.jpg").convert()
+        self.block = pygame.image.load("block.jpg").convert()
         self.x = [SIZE]*length
         self.y = [SIZE]*length
         self.direction = 'right'
@@ -46,9 +46,9 @@ class Snake :
     def move_down(self) :
         self.direction = 'down'
 
-    def draw(self) :                  #you may have passed surface as an argument to this function
+    def draw(self) :                
         
-        self.parent_screen.fill(BACKGROUND_COLOR)   #here you are clearing the screen that's why you have print the blocks and apple again in the run function
+        self.parent_screen.fill(BACKGROUND_COLOR)  
         for i in range (self.length) :
             self.parent_screen.blit(self.block, (self.x[i], self.y[i]))
         pygame.display.flip()
@@ -95,7 +95,7 @@ class Game :
         return False
 
     #def play_background_music(self) :
-        #pygame.mixer.music.load('resources/bg_music_1.mp3')
+        #pygame.mixer.music.load('bg_music_1.mp3')
         #pygame.mixer.music.play()
 
 
@@ -132,11 +132,11 @@ class Game :
         pygame.mixer.music.pause()
 
     #def play_sound(self, sound) :
-        #sound = pygame.mixer.Sound(r"resources/{sound}.mp3")
+        #sound = pygame.mixer.Sound("{sound}.mp3")
         #pygame.mixer.Sound.play(sound)
 
     def render_background(self) :
-        bg = pygame.image.load("resources/background.jpg")
+        bg = pygame.image.load("background.jpg")
         self.surface.blit( bg, (0, 0))
 
     def display_score(self) :
